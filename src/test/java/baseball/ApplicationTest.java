@@ -11,7 +11,11 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
 public class ApplicationTest extends NSTest {
-    @BeforeEach
+    // 테스트 메소드란 @Test ,@RepeatedTest ,@ParamterizedTest,@TestFactory ,@TestTemplate 같은 메타 어노테이션이 메소드
+    // 라이플사이클 메소드란 @BeforeAll , @AfterAll , @BeforeEach , @AfterEach 같은 메타 어노테이션이 메소드에 붙여진 메소드를 말한다.
+    // 테스트 메소드와 라이프사이클 메소드는 abstract 선언하면 안되고, 어떠한 값도 리턴되선 안된다.
+    // 테스트 클래스, 테스트 메소드, 라이플사이클 메소드는 접근제어자를 public 으로 선언을 꼭 안해줘도 된다. 그러나 private 으로 선언하면 안된다.
+    @BeforeEach //각 테스트 메소드가 실행되기전에 실행되어야 하는 메소드를 명시
     void beforeEach() {
         super.setUp();
     }
@@ -38,7 +42,7 @@ public class ApplicationTest extends NSTest {
         }
     }
 
-    @AfterEach
+    @AfterEach // @Test , @RepeatedTest , @ParameterizedTest , @TestFactory 가 붙은 테스트 메소드가 실행되고 난 후 실행
     void tearDown() {
         outputStandard();
     }
