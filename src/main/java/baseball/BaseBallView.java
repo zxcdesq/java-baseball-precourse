@@ -12,19 +12,15 @@ public class BaseBallView {
     }
 
     // 숫자 입력 받기
-    public int pitching() {
+    public int getNumber() {
         System.out.println("숫자를 입력해주세요: ");
         return Integer.parseInt(Console.readLine());
     }
-    // 숫자 입력 받기
-    public int restarting() {
+    
+    // 재시작 여부 받기
+    public int getRestartNum() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력해주세요.");
         return Integer.parseInt(Console.readLine());
-    }
-
-    // 문자 출력
-    void showNumber(int value){
-        System.out.println("Add value is " + value);
     }
 
     // 결과 메세지 출력
