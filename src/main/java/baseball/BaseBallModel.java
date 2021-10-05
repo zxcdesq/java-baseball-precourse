@@ -18,7 +18,7 @@ public class BaseBallModel {
         this.isGameOver = false;
     }
 
-    // 컴퓨터의 랜덤 숫자
+    // 컴퓨터의 랜덤 숫자 생성
     public int getRandomNumber() {
         Set<Integer> randomNumberSet = new LinkedHashSet<Integer>();
         String temp = "";
@@ -38,6 +38,7 @@ public class BaseBallModel {
 //        countStrike(inputNumber, randomNumber);
 
         // 스트라이크 판단
+        // TODO: 함수 나누기
         int strikeCnt = 0;
         String inputNumberString = Integer.toString(inputNumber);
         String randomNumberString = Integer.toString(inputNumber);
@@ -47,7 +48,8 @@ public class BaseBallModel {
             }
         }
 
-        // 볼 판단 indent 수정해야할 듯.
+        // 볼 판단
+        // TODO: 함수 나누기
         int ballCnt = 0;
         for (int i = 0; i < inputNumberString.length(); i++) {
             for (int j = 0; j < randomNumberString.length(); j++) {
@@ -61,7 +63,6 @@ public class BaseBallModel {
 
         // 결과 메세지 셋팅
         setResultMsg(strikeCnt,ballCnt);
-
 
         return resultString;
     }
@@ -86,34 +87,4 @@ public class BaseBallModel {
             isGameOver = true;
         }
     }
-
-//    private int countStrike(int inputNumber, int randomNumber) {
-//        int strikeCnt = 0;
-//        String str = Integer.toString(inputNumber);
-//        for (int i = 0; i < temp.length(); i++) {
-//            if (randomNumber.get(i) == temp.charAt(i) - '0') {
-//                strikeCnt++;
-//            }
-//        }
-//        return strikeCnt;
-//    }
-
-    // 재시작 여부 받기
-    public boolean askRematch() {
-        boolean isRematch = false;
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        Integer inputNumber = Integer.parseInt(Console.readLine());
-        if(inputNumber == 1){
-            isRematch = true;
-        }
-        return isRematch;
-    }
-    // 재시작 여부 받기
-    public void rematch(boolean isRematch) {
-        if(isRematch){
-
-        }
-    }
 }
-
-// model:baseballGame view: controller:user
