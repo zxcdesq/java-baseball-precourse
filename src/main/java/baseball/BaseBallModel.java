@@ -34,7 +34,6 @@ public class BaseBallModel {
 
     // 입력 받은 수 판단
     public String judging(int inputNumber) {
-        String resultString = "";
 //        countStrike(inputNumber, randomNumber);
 
         // 스트라이크 판단
@@ -61,28 +60,29 @@ public class BaseBallModel {
         // 게임 종료여부 판단
         isGameOver(randomNumber, strikeCnt);
 
+       
         // 결과 메세지 셋팅
-        setResultMsg(strikeCnt,ballCnt);
-
-        return resultString;
+        return setResultMsg(strikeCnt,ballCnt);;
     }
 
     // 결과 메세지 셋팅
-    private void setResultMsg(int strikeCnt, int ballCnt) {
+    private String setResultMsg(int strikeCnt, int ballCnt) {
         if(strikeCnt == 3){
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
+            resultMsg ="3개의 숫자를 모두 맞히셨습니다! 게임 끝";
         }
         if(strikeCnt < 3){
-            System.out.println(strikeCnt + "스트라이크 " + ballCnt + "볼");
+            resultMsg = strikeCnt + "스트라이크 " + ballCnt + "볼";
         }
         if(strikeCnt == 0 && ballCnt == 0){
-            System.out.println("낫싱");
+            resultMsg = "낫싱";
         }
+        return resultMsg;
     }
 
     // 게임 종료여부 판단
     private void isGameOver(int randomNumber, int strikeCnt) {
-        String randomNumberString = Integer.toString(randomNumber);
+        
+        randomNumberString = Integer.toString(randomNumber);
         if(randomNumberString.length() == strikeCnt){
             isGameOver = true;
         }
